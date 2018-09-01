@@ -454,6 +454,9 @@ typedef struct TOScrollBarScrollViewState TOScrollBarScrollViewState;
         return;
     }
 
+    // Closes the swipe actions menu, avoiding zombie swipe menu on reused cells.
+    [(UITableView *)self.scrollView setEditing:false animated:true];
+
     // Warm-up the feedback generator
     [_feedbackGenerator prepare];
 
